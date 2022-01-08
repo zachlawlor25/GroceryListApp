@@ -42,10 +42,16 @@ def addToList():
     groceryInfo1 = Entry(labelFrame)
     groceryInfo1.place(relx=0.3,rely=0.2, relwidth=0.62, relheight=0.08)
 
+    # Store
+    lb2 = Label(labelFrame,text="Desired Store : ", bg='black', fg='white')
+    lb2.place(relx=0.05,rely=0.35, relheight=0.08)
+        
+    groceryInfo2 = Entry(labelFrame)
+    groceryInfo2.place(relx=0.3,rely=0.35, relwidth=0.62, relheight=0.08)
 
     #Submit Button
     SubmitBtn = Button(root,text="SUBMIT",bg='#d1ccc0', fg='black',command=root.destroy)
     SubmitBtn.place(relx=0.28,rely=0.9, relwidth=0.18,relheight=0.08)
     
-    quitBtn = Button(root,text="Quit",bg='#f7f1e3', fg='black',       command=root.destroy)
+    quitBtn = Button(root,text="Quit",bg='#f7f1e3', fg='black',command=root.destroy)
     quitBtn.place(relx=0.53,rely=0.9, relwidth=0.18,relheight=0.08)

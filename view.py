@@ -29,9 +29,13 @@ def viewList():
     background.place(x = 0, y = 0)
 
     
-    # Quit button
-    quitBtn = Button(root,text="Quit",bg='#f7f1e3', fg='black',command=root.destroy)
-    quitBtn.place(relx=0.28,rely=0.8, relwidth=0.45,relheight=0.05)
+    # Close button
+    quitBtn = Button(root,text="Close",bg='#f7f1e3', fg='black',command=root.destroy)
+    quitBtn.place(relx=0.53,rely=0.9, relwidth=0.18,relheight=0.08)
+
+    #clear list button
+    clearBtn = Button(root,text="Clear List",bg='#f7f1e3', fg='black',command=lambda:clearList(root))
+    clearBtn.place(relx=0.28,rely=0.9, relwidth=0.18,relheight=0.08)
 
     #Heading layout
     headingFrame1 = Frame(root,bg="#FFBB00",bd=5)
@@ -79,7 +83,12 @@ def viewList():
     # Iterating through the json
     # list
     for i in data:
-        print(f"Item {i}: {data[i]}")
+        #print(f"Item {i}: {data[i]}")
         my_table.insert(parent='', index='end', iid=i, text='', values=(i, data[i]['item'], data[i]['store']))
 
     my_table.pack()
+
+def clearList(root):
+    with open("items.json", 'r+') as f:
+        f.truncate(0)
+    root.destroy()

@@ -1,4 +1,5 @@
 import json
+from json.decoder import JSONDecodeError
 
 class Item:
   def __init__(self, name, store):
@@ -22,25 +23,32 @@ class Item:
     f.close()
 
   def writeJson(self):
-    # Opening JSON file
-    f = open('items.json')
+
+    try:
+      # Opem json file
+      f = open('items.json')
  
-    # returns JSON object as
-    # a dictionary
-    data = json.load(f)
+      # returns JSON object as
+      # a dictionary
+      data = json.load(f)
+    except JSONDecodeError:
+      #creates dictionary if JSON file is empty and can't create a dictionary
+      data = {}
 
     #create list to get next sequence in keys
     intList = []
-
     for item in data.keys():
       intList.append(int(item))
-
-    nextVal = (intList[-1] + 1)
+    
+    #checks if there is an index created already, if not, starts the new value at 1
+    if (len(intList) > 0):
+      nextVal = (intList[-1] + 1)
+    else:
+      nextVal = 1
     
     #Add new values to dictionary
-    data[str(nextVal)] = {"item": self.name, "store": self.store}
+    data[str(nextVal)] = {"item": self.name.title(), "store": self.store.title()}
 
     with open('items.json', 'w') as jsonFile:
       json.dump(data, jsonFile, indent=4)
     
-    print(data)

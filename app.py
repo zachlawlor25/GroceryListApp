@@ -5,6 +5,7 @@ from PIL import Image, ImageTk
 #Import functions
 import addListItem as addListItem
 import sys
+import view as view
 
 #https://data-flair.training/blogs/library-management-system-python-project/
 
@@ -36,7 +37,7 @@ headingLabel.place(relx=0,rely=0, relwidth=1, relheight=1)
 btn1 = Button(root,text="Add List Item",bg='white', fg='black',highlightbackground = '#000000', command=lambda:addListItem.addToList())
 btn1.place(relx=0.28,rely=0.4, relwidth=0.45,relheight=0.1)
     
-btn2 = Button(root,text="BLANK",bg='black', fg='black',highlightbackground='#000000', command=lambda:sys.exit())
+btn2 = Button(root,text="View Grocery List",bg='black', fg='black',highlightbackground='#000000', command=lambda:view.viewList())
 btn2.place(relx=0.28,rely=0.5, relwidth=0.45,relheight=0.1)
     
 btn3 = Button(root,text="BLANK",bg='black', fg='black',highlightbackground='#000000', command=lambda:sys.exit())

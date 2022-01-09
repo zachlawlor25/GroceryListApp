@@ -3,6 +3,8 @@ from tkinter import ttk
 import os
 from PIL import Image, ImageTk
 import sys
+import tkinter.messagebox
+import models as models
 
 
 def addToList():
@@ -50,8 +52,16 @@ def addToList():
     groceryInfo2.place(relx=0.3,rely=0.35, relwidth=0.62, relheight=0.08)
 
     #Submit Button
-    SubmitBtn = Button(root,text="SUBMIT",bg='#d1ccc0', fg='black',command=root.destroy)
+    SubmitBtn = Button(root,text="SUBMIT",bg='#d1ccc0', fg='black',command=lambda:addNew(root,groceryInfo1,groceryInfo2))
     SubmitBtn.place(relx=0.28,rely=0.9, relwidth=0.18,relheight=0.08)
     
     quitBtn = Button(root,text="Quit",bg='#f7f1e3', fg='black',command=root.destroy)
     quitBtn.place(relx=0.53,rely=0.9, relwidth=0.18,relheight=0.08)
+
+def addNew(inputRoot,inputItem,inputStore):
+    itemEntry = inputItem.get()
+    storeEntry = inputStore.get()
+    print(f"\nItem Entered: {itemEntry}\nStore Entered: {storeEntry}\n")
+    newEntry = models.Item(itemEntry, storeEntry)
+    models.Item.writeJson(newEntry)
+    tkinter.messagebox.showinfo("Submission Successful","The item was successfully submitted. You may now close this window, or proceed to enter another item")

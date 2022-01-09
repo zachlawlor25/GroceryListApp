@@ -1,0 +1,22 @@
+{
+    "1": {
+        "item": "Eggs",
+        "store": "Wegmans"
+    },
+    "2": {
+        "item": "Milk",
+        "store": "Wegmans"
+    },
+    "3": {
+        "item": "Test Item",
+        "store": "Giant"
+    },
+    "4": {
+        "item": "Bacon",
+        "store": "Wegmans"
+    },
+    "5": {
+        "item": "Coffee Creamer",
+        "store": "Wegmans"
+    }
+}

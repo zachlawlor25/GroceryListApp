@@ -55,7 +55,7 @@ def addToList():
     SubmitBtn = Button(root,text="SUBMIT",bg='#d1ccc0', fg='black',command=lambda:addNew(root,groceryInfo1,groceryInfo2))
     SubmitBtn.place(relx=0.28,rely=0.9, relwidth=0.18,relheight=0.08)
     
-    quitBtn = Button(root,text="Quit",bg='#f7f1e3', fg='black',command=root.destroy)
+    quitBtn = Button(root,text="Close",bg='#f7f1e3', fg='black',command=root.destroy)
     quitBtn.place(relx=0.53,rely=0.9, relwidth=0.18,relheight=0.08)
 
 def addNew(inputRoot,inputItem,inputStore):
